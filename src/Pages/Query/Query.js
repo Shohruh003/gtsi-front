@@ -1,13 +1,18 @@
 
 import '../../sass/main.css'
 import PeopleImg from '../../images/photo_2022-10-13_15-28-30.jpg'
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/themeContext';
 function Query() {
+
+  const {isDarkMode} = useContext(ThemeContext)
+
  
     return (
       <div className="query">
         <div className="query_inner">
             <div className="query_header">
-                <ul className="query_headerList">
+                <ul className={`query_headerList ${isDarkMode ? 'darkmode' : ''}`}>
                     <li className="query_headerItem">
                         <label>Ф.И.О</label>
                         <input className="query_headerInput" type="text" placeholder="Ф.И.О" />
@@ -44,7 +49,7 @@ function Query() {
                 </ul>
             </div>
 
-            <table className="table">
+            <table className={`table ${isDarkMode ? 'darkmode' : ''}`}>
   <thead>
     <tr className='tableHead'>
       <th>

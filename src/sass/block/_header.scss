@@ -2,6 +2,9 @@
         display: block;
         height: 100vh;
     border-right: 2px solid $blue;
+    &.darkmode {
+        background-color: $dark-background-color;
+      }
     }
 
 .header_inner {
@@ -50,15 +53,27 @@
     font-size: 28px;
     color: $black;
     text-decoration: none;
+
+    &.darkmode {
+        color: $dark-black;
+      }
 }
 
 .header_link:hover {
     background-color: $back-color;
+
+    &.darkmode {
+        background-color: $dark-back-color;
+      }
 }
 
 .header_link:active {
     background-color: $blue;
     color: $white;
+
+    &.darkmode {
+        background-color: $dark-blue;
+      }
 }
 
 .header_compare {
@@ -98,6 +113,10 @@
     width: 45%;
     font-size: 14px;
     text-align: center;
+
+    &.darkmode {
+        color: $dark-black;
+      }
 }
 
 .compare_button{
@@ -114,11 +133,20 @@
     color: $black;
     background-color: transparent;
     cursor: pointer;
+
+    &.darkmode {
+        color: $dark-black;
+      }
 }
 
 .compare_button:hover {
     border-color: $back-color;
     background-color: $back-color;
+
+    &.darkmode {
+        border-color: $dark-blue;
+        background-color: $dark-blue;
+      }
 }
 
 
@@ -126,6 +154,10 @@
     border-color: $blue;
     color: $white;
     background-color: $blue;
+
+    &.darkmode {
+        background-color: $dark-background-color;
+      }
 }
 
 .header_liveness{
@@ -158,11 +190,20 @@
     color: $black;
     background-color: transparent;
     cursor: pointer;
+
+    &.darkmode {
+        color: $dark-black;
+      }
 }
 
 .header_livenessBtn:hover {
     border-color: $back-color;
     background-color: $back-color;
+
+    &.darkmode {
+        border-color: $dark-blue;
+        background-color: $dark-blue;
+      }
 }
 
 
@@ -170,6 +211,10 @@
     border-color: $blue;
     color: $white;
     background-color: $blue;
+
+    &.darkmode {
+        background-color: $dark-background-color;
+      }
 }
 
 .activeColor {

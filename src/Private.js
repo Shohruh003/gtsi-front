@@ -4,11 +4,15 @@ import Dashboard from "./Pages/Dashboard/Dashboard"
 import Database from "./Pages/Database/Database"
 import Query from "./Pages/Query/Query"
 import Header from "./components/Header/Header"
+import { useContext } from "react"
+import { ThemeContext } from "./context/themeContext"
 
 function Private () {
+  const {isDarkMode} = useContext(ThemeContext)
+
 
      return (
-      <div className="private">
+      <div className={`private ${isDarkMode ? 'darkmode' : ''}`}>
         <div className="container">
           <div className="private_inner">
             <Header/>

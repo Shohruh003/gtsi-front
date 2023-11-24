@@ -42,6 +42,10 @@ html {
 
   .private {
     background-color: $background-color;
+    &.darkmode {
+      background-color: $dark-background-color;
+    }
+
   }
   .private_inner {
     display: flex;

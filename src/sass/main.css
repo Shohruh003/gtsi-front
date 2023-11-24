@@ -353,6 +353,9 @@ img {
 .private {
   background-color: rgba(0, 182, 214, 0.1);
 }
+.private.darkmode {
+  background-color: #393C42;
+}
 
 .private_inner {
   display: flex;
@@ -363,6 +366,9 @@ img {
   display: block;
   height: 100vh;
   border-right: 2px solid #00B8D7;
+}
+.header.darkmode {
+  background-color: #393C42;
 }
 
 .header_inner {
@@ -412,14 +418,23 @@ img {
   color: #393C42;
   text-decoration: none;
 }
+.header_link.darkmode {
+  color: #F5F5F5;
+}
 
 .header_link:hover {
   background-color: rgba(57, 60, 65, 0.1);
+}
+.header_link:hover.darkmode {
+  background-color: rgba(245, 245, 245, 0.1);
 }
 
 .header_link:active {
   background-color: #00B8D7;
   color: #F5F5F5;
+}
+.header_link:active.darkmode {
+  background-color: #00B8D7;
 }
 
 .header_compare {
@@ -460,6 +475,9 @@ img {
   font-size: 14px;
   text-align: center;
 }
+.compare_label.darkmode {
+  color: #F5F5F5;
+}
 
 .compare_button {
   display: block;
@@ -476,16 +494,26 @@ img {
   background-color: transparent;
   cursor: pointer;
 }
+.compare_button.darkmode {
+  color: #F5F5F5;
+}
 
 .compare_button:hover {
   border-color: rgba(57, 60, 65, 0.1);
   background-color: rgba(57, 60, 65, 0.1);
+}
+.compare_button:hover.darkmode {
+  border-color: #00B8D7;
+  background-color: #00B8D7;
 }
 
 .compare_button:active {
   border-color: #00B8D7;
   color: #F5F5F5;
   background-color: #00B8D7;
+}
+.compare_button:active.darkmode {
+  background-color: #393C42;
 }
 
 .header_liveness {
@@ -519,16 +547,26 @@ img {
   background-color: transparent;
   cursor: pointer;
 }
+.header_livenessBtn.darkmode {
+  color: #F5F5F5;
+}
 
 .header_livenessBtn:hover {
   border-color: rgba(57, 60, 65, 0.1);
   background-color: rgba(57, 60, 65, 0.1);
+}
+.header_livenessBtn:hover.darkmode {
+  border-color: #00B8D7;
+  background-color: #00B8D7;
 }
 
 .header_livenessBtn:active {
   border-color: #00B8D7;
   color: #F5F5F5;
   background-color: #00B8D7;
+}
+.header_livenessBtn:active.darkmode {
+  background-color: #393C42;
 }
 
 .activeColor {
@@ -647,6 +685,10 @@ img {
   font-weight: 700;
 }
 
+.darkmode .requestItem, .darkmode .request_text, .darkmode p, .darkmode .base_totalNum {
+  color: #F5F5F5;
+}
+
 .query {
   display: block;
   width: 100%;
@@ -668,6 +710,10 @@ img {
   color: #393C42;
 }
 
+.darkmode label {
+  color: #F5F5F5;
+}
+
 .query_headerInput {
   width: 100%;
   padding: 5px 10px;
@@ -676,6 +722,16 @@ img {
   background-color: rgba(57, 60, 65, 0.1);
   color: #393C42;
   border: #393C42;
+}
+
+.darkmode input {
+  background-color: rgba(245, 245, 245, 0.1);
+  color: #F5F5F5;
+  border: 1px solid #F5F5F5;
+}
+
+.darkmode th {
+  color: #F5F5F5;
 }
 
 .query_seria {
@@ -827,4 +883,83 @@ img {
 
 .query_fullName {
   min-width: 120px;
+}
+
+/* ------------ VARIABLES ------------ */
+:root {
+  /* COLORS */
+  --color: #9176FF;
+  --dark-color: #2b2b2b;
+  --dark-icon-color: #fff;
+  --light-color: #f7f7f7;
+  --light-icon-color: #FFDE59;
+}
+
+/* ------------ BASE ------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* -------------- BUTTON -------------- */
+.btn {
+  background-color: transparent;
+  width: 4em;
+  min-height: 2.2em;
+  height: 10em !important;
+  border-radius: 10em;
+  padding: 0;
+  margin-left: auto;
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1), inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn__indicator {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.btn__icon-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn__icon {
+  color: var(--light-icon-color);
+  font-size: 2rem;
+}
+
+/* -------------- ANIMATION ------------ */
+.btn__icon.animated {
+  animation: spin 0.5s;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* -------------- DARKMODE -------------- */
+.darkmode .btn {
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.3), inset 2px 0 2px rgba(0, 0, 0, 0.3), inset 0 -2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.darkmode .btn__indicator {
+  transform: translateX(2em);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+.darkmode .btn__icon {
+  color: var(--dark-icon-color);
 }/*# sourceMappingURL=main.css.map */

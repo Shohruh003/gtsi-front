@@ -19,6 +19,10 @@
     color: $black;
 }   
 
+.darkmode label {
+    color: $dark-white;
+}
+
 .query_headerInput{
     width: 100%;
     padding: 5px 10px;
@@ -27,6 +31,17 @@
     background-color: $back-color;
     color: $black;
     border: $black;
+}
+
+.darkmode input {
+        background-color: $dark-back-color;
+        color: $dark-black;
+        border: 1px solid  $dark-black;
+
+}
+
+.darkmode th {
+    color: $dark-black;
 }
 
 .query_seria{

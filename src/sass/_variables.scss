@@ -1,15 +1,32 @@
-$blue:#00B8D7;
+
+$blue: #00B8D7;
 $black: #393C42;
 $white: #F5F5F5;
-$background-color:rgba(0, 182, 214, 0.1); 
+$background-color: rgba(0, 182, 214, 0.1);
 $back-color: rgba(57, 60, 65, 0.1);
-$hover-table:rgba(0, 182, 214, 0.4)
+$hover-table: rgba(0, 182, 214, 0.4);
 
 
+$dark-blue: #00B8D7;
+$dark-black: #F5F5F5;
+$dark-white: #F5F5F5;
+$dark-background-color: #393C42;
+$dark-back-color: rgba(245, 245, 245, 0.1);
+$dark-hover-table: rgba(0, 182, 214, 0.4);
 
-// $blue:#00B8D7;
-// $black: #F5F5F5;
-// $white:#F5F5F5;
-// $background-color:#393C42; 
-// $back-color: rgba(245, 245, 245, 0.1);
-// $hover-table:rgba(0, 182, 214, 0.4)
+
+// @if $darkMode {
+//   $blue: #00B8D7;
+//   $black: #393C42;
+//   $white: #F5F5F5;
+//   $background-color: rgba(0, 182, 214, 0.1);
+//   $back-color: rgba(57, 60, 65, 0.1);
+//   $hover-table: rgba(0, 182, 214, 0.4);
+// } @else {
+//     $blue: #00B8D7;
+//     $black: #F5F5F5;
+//     $white: #F5F5F5;
+//     $background-color: #393C42;
+//     $back-color: rgba(245, 245, 245, 0.1);
+//     $hover-table: rgba(0, 182, 214, 0.4);
+// }

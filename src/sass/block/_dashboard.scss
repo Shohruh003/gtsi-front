@@ -105,3 +105,10 @@
     display: block;
     font-weight: 700;
 }
+
+
+// ======================= dark mode =============
+
+.darkmode .requestItem, .darkmode .request_text, .darkmode p , .darkmode .base_totalNum{
+    color: $dark-black;
+}

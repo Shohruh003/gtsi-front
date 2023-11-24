@@ -1,8 +1,12 @@
 
+import { useContext } from 'react';
 import Speed from '../../images/speed.png'
+import { ThemeContext } from '../../context/themeContext';
 function Dashboard() {
+  const {isDarkMode} = useContext(ThemeContext)
+
     return (
-      <div className="dashboard">
+      <div className={`dashboard ${isDarkMode ? 'darkmode' : ''}`}>
         <div className="dashboard_inner">
             <div className="dashboard_base">
                 <div className="base_total">
