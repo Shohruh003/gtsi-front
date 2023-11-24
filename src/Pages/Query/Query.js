@@ -1,7 +1,8 @@
 
-
+import '../../sass/main.css'
 import PeopleImg from '../../images/photo_2022-10-13_15-28-30.jpg'
 function Query() {
+ 
     return (
       <div className="query">
         <div className="query_inner">
@@ -12,71 +13,523 @@ function Query() {
                         <input className="query_headerInput" type="text" placeholder="Ф.И.О" />
                     </li>
 
-                    <li className="query_headerItem">
+                    <li className="query_headerItem query_seria">
                         <label>Серия</label>
                         <input className="query_headerInput" type="text" placeholder="AB" maxLength={2} minLength={2}/>
                     </li>
 
-                    <li className="query_headerItem">
+                    <li className="query_headerItem query_seriaNumber">
                         <label>Номер</label>
                         <input className="query_headerInput" type="text" placeholder="1234567" maxLength={7} minLength={7}/>
                     </li>
 
-                    <li className="query_headerItem">
+                    <li className="query_headerItem query_pinfl">
                         <label>PINFL</label>
-                        <input className="query_headerInput" type="text" placeholder="********" />
+                        <input className="query_headerInput" type="text" placeholder="********" maxLength={14} minLength={14}/>
                     </li>
 
-                    <li className="query_headerItem">
+                    <li className="query_headerItem query_macAddres">
                         <label>MAC Adress</label>
                         <input className="query_headerInput" type="text" placeholder="26-33-67-7A-C5-27" />
                     </li>
 
+                    <li className="query_headerItem query_searchImg">
+                        <label>Поиск фото</label>
+                        <input className="query_headerInput query_searchImg" type="file" placeholder="Фото" />
+                    </li>
+
                     <li className="query_headerItem">
-                        <label>Поиск по фото</label>
-                        <input className="query_headerInput" type="file" placeholder="Фото" />
                         <button className="query_searchBtn" type="submit">Поиск</button>
                     </li>
                 </ul>
             </div>
 
-            <ul className="query_list">
-                <li className="query_item query_itemHeader">
-                    <p className="query_check"></p>
-                    <p className="query_id">ID</p>
-                    <p className="query_date">Дата</p>
-                    <p className="query_time">Время</p>
-                    <p className="query_macAddredd">MAC Адрес</p>
-                    <p className="query_img">Фото</p>
-                    <p className="query_fullName">Ф.И.О</p>
-                    <p className="query_liveness">Liveness</p>
-                    <p className="query_one_n">1:N</p>
-                    <p className="query_one_one">1:1</p>
-                    <p className="query_baseImg">Фото в базе</p>
-                    <p className="query_attack">PHISH Атака</p>
-                </li>
-
-                <li className="query_item">
+            <table className="table">
+  <thead>
+    <tr className='tableHead'>
+      <th>
+        <p>#</p>
+      </th>
+      <th>
+        <p>ID</p>
+      </th>
+      <th>
+        <p>Дата</p>
+      </th>
+      <th>
+        <p>Время</p>
+      </th>
+      <th>
+        <p>MAC Адрес</p>
+      </th>
+      <th>
+        <p>Фото</p>
+      </th>
+      <th>
+        <p>Ф.И.О</p>
+      </th>
+      <th>
+        <p>Live</p>
+      </th>
+      <th>
+        <p>1:N</p>
+      </th>
+      <th>
+        <p>1:1</p>
+      </th>
+      <th>
+        <p>Фото в базе</p>
+      </th>
+      <th>
+        <p>PHISH Атака</p>
+      </th>
+    </tr>
+  </thead>
+  <tbody className='tbody'>
+    <tr>
+                    <th className='query_th'>
                     <p className="query_check">
-                        <input className='query_checkInput' type="check" width={20} height={20}/>
-                    </p>
-                    <p className="query_id">1</p>
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">31456</p>
+                    </th>
+                    <th>
                     <p className="query_date">22.01.2023</p>
+                    </th>
+                    <th>
                     <p className="query_time">16:00:32</p>
+                    </th>
+                    <th>
                     <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    </th>
+                    <th>
                     <p className="query_img">
                         <img src={PeopleImg} width={50} height={50} alt="image"/>
                     </p>
+                    </th>
+                    <th>
                     <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
                     <p className="query_liveness">True</p>
+                    </th>
+                    <th>
                     <p className="query_one_n">Success</p>
+                    </th>
+                    <th>
                     <p className="query_one_one">Success</p>
+                    </th>
+                    <th>
                     <p className="query_baseImg">
                         <img src={PeopleImg} width={50} height={50} alt="image"/>
                     </p>
+                    </th>
+                    <th>
                     <p className="query_attack">Нет</p>
-                </li>
-            </ul>
+                    </th>
+    </tr>
+
+    <tr>
+                    <th>
+                    <p className="query_check">
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">1</p>
+                    </th>
+                    <th>
+                    <p className="query_date">22.01.2023</p>
+                    </th>
+                    <th>
+                    <p className="query_time">16:00:32</p>
+                    </th>
+                    <th>
+                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    </th>
+                    <th>
+                    <p className="query_img">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
+                    <p className="query_liveness">True</p>
+                    </th>
+                    <th>
+                    <p className="query_one_n">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_baseImg">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_attack">Нет</p>
+                    </th>
+    </tr>
+
+    <tr>
+                    <th>
+                    <p className="query_check">
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">1</p>
+                    </th>
+                    <th>
+                    <p className="query_date">22.01.2023</p>
+                    </th>
+                    <th>
+                    <p className="query_time">16:00:32</p>
+                    </th>
+                    <th>
+                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    </th>
+                    <th>
+                    <p className="query_img">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
+                    <p className="query_liveness">True</p>
+                    </th>
+                    <th>
+                    <p className="query_one_n">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_baseImg">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_attack">Нет</p>
+                    </th>
+    </tr>
+
+    <tr>
+                    <th>
+                    <p className="query_check">
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">1</p>
+                    </th>
+                    <th>
+                    <p className="query_date">22.01.2023</p>
+                    </th>
+                    <th>
+                    <p className="query_time">16:00:32</p>
+                    </th>
+                    <th>
+                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    </th>
+                    <th>
+                    <p className="query_img">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
+                    <p className="query_liveness">True</p>
+                    </th>
+                    <th>
+                    <p className="query_one_n">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_baseImg">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_attack">Нет</p>
+                    </th>
+    </tr>
+
+    <tr>
+                    <th>
+                    <p className="query_check">
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">1</p>
+                    </th>
+                    <th>
+                    <p className="query_date">22.01.2023</p>
+                    </th>
+                    <th>
+                    <p className="query_time">16:00:32</p>
+                    </th>
+                    <th>
+                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    </th>
+                    <th>
+                    <p className="query_img">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
+                    <p className="query_liveness">True</p>
+                    </th>
+                    <th>
+                    <p className="query_one_n">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_baseImg">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_attack">Нет</p>
+                    </th>
+    </tr>
+
+    <tr>
+                    <th>
+                    <p className="query_check">
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">1</p>
+                    </th>
+                    <th>
+                    <p className="query_date">22.01.2023</p>
+                    </th>
+                    <th>
+                    <p className="query_time">16:00:32</p>
+                    </th>
+                    <th>
+                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    </th>
+                    <th>
+                    <p className="query_img">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
+                    <p className="query_liveness">True</p>
+                    </th>
+                    <th>
+                    <p className="query_one_n">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_baseImg">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_attack">Нет</p>
+                    </th>
+    </tr>
+
+    <tr>
+                    <th>
+                    <p className="query_check">
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">1</p>
+                    </th>
+                    <th>
+                    <p className="query_date">22.01.2023</p>
+                    </th>
+                    <th>
+                    <p className="query_time">16:00:32</p>
+                    </th>
+                    <th>
+                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    </th>
+                    <th>
+                    <p className="query_img">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
+                    <p className="query_liveness">True</p>
+                    </th>
+                    <th>
+                    <p className="query_one_n">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_baseImg">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_attack">Нет</p>
+                    </th>
+    </tr>
+
+    <tr>
+                    <th>
+                    <p className="query_check">
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">1</p>
+                    </th>
+                    <th>
+                    <p className="query_date">22.01.2023</p>
+                    </th>
+                    <th>
+                    <p className="query_time">16:00:32</p>
+                    </th>
+                    <th>
+                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    </th>
+                    <th>
+                    <p className="query_img">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
+                    <p className="query_liveness">True</p>
+                    </th>
+                    <th>
+                    <p className="query_one_n">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_baseImg">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_attack">Нет</p>
+                    </th>
+    </tr>
+
+    <tr>
+                    <th>
+                    <p className="query_check">
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">1</p>
+                    </th>
+                    <th>
+                    <p className="query_date">22.01.2023</p>
+                    </th>
+                    <th>
+                    <p className="query_time">16:00:32</p>
+                    </th>
+                    <th>
+                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    </th>
+                    <th>
+                    <p className="query_img">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
+                    <p className="query_liveness">True</p>
+                    </th>
+                    <th>
+                    <p className="query_one_n">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_baseImg">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_attack">Нет</p>
+                    </th>
+    </tr>
+
+    <tr>
+                    <th>
+                    <p className="query_check">
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">1</p>
+                    </th>
+                    <th>
+                    <p className="query_date">22.01.2023</p>
+                    </th>
+                    <th>
+                    <p className="query_time">16:00:32</p>
+                    </th>
+                    <th>
+                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    </th>
+                    <th>
+                    <p className="query_img">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
+                    <p className="query_liveness">True</p>
+                    </th>
+                    <th>
+                    <p className="query_one_n">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">Success</p>
+                    </th>
+                    <th>
+                    <p className="query_baseImg">
+                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_attack">Нет</p>
+                    </th>
+    </tr>
+  </tbody>
+</table>
+
+<button className='delete_button' type='button'>Удалить</button>
+            
         </div>
       </div>
     );

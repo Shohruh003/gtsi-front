@@ -1,3 +1,4 @@
+
 import Speed from '../../images/speed.png'
 function Dashboard() {
     return (
@@ -5,7 +6,7 @@ function Dashboard() {
         <div className="dashboard_inner">
             <div className="dashboard_base">
                 <div className="base_total">
-                    <p className="base_name">Всего записей в базе <span className="base_totalNum">2840000</span></p>
+                    <p className="base_name">Всего записей в базе <span className="base_totalNum">28 400 000</span></p>
                 </div>
 
                 <div className="dashboard_request">
@@ -13,7 +14,7 @@ function Dashboard() {
                         <img src={Speed} width='40' height='40' alt='speedIcon'/>
                         <span className='speed_number'>0,4 сек</span>
                     </div>
-                    <p className='request_text'>Средняя скорость обработки запроса</p>
+                    <p className='request_speedText'>Средняя скорость обработки запроса</p>
                 </div>
             </div>
 

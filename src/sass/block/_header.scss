@@ -1,0 +1,182 @@
+    .header {
+        display: block;
+        height: 100vh;
+    border-right: 2px solid $blue;
+    }
+
+.header_inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+    padding: 30px 30px;
+}
+
+.header_logoDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header_logo {
+    width: 70px;
+}
+
+.header_logoName {
+    font-size: 28px;
+    color: $blue;
+}
+
+.header_logoSpan {
+    font-size: 36px;
+}
+
+.header_linkList {
+    width: 100%;
+    padding: 0;
+    margin: 10px 0;
+    list-style-type: none;
+}
+
+.header_link {
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 28px;
+    color: $black;
+    text-decoration: none;
+}
+
+.header_link:hover {
+    background-color: $back-color;
+}
+
+.header_link:active {
+    background-color: $blue;
+    color: $white;
+}
+
+.header_compare {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid $blue;
+}
+
+.compare_heading{
+    font-weight: 700;
+    font-size: 28px;
+    margin: 0;
+    color: $blue;
+}
+
+.compare_images{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.compare_image {
+    display: block;
+    width: 100%;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid $blue;
+    margin: 0;
+    cursor: pointer;
+}
+
+.compare_label {
+    display: block;
+    width: 45%;
+    font-size: 14px;
+    text-align: center;
+}
+
+.compare_button{
+    display: block;
+    width: 95%;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px auto 0 auto;
+    padding: 5px 0;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 2px solid $blue;
+    color: $black;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.compare_button:hover {
+    border-color: $back-color;
+    background-color: $back-color;
+}
+
+
+.compare_button:active {
+    border-color: $blue;
+    color: $white;
+    background-color: $blue;
+}
+
+.header_liveness{
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid $blue;
+}
+
+.header_livenessText{
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    color: $blue;
+}
+
+.header_livenessBtn {
+    display: block;
+    width: 95%;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px auto 0 auto;
+    padding: 5px 0;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 2px solid $blue;
+    color: $black;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header_livenessBtn:hover {
+    border-color: $back-color;
+    background-color: $back-color;
+}
+
+
+.header_livenessBtn:active {
+    border-color: $blue;
+    color: $white;
+    background-color: $blue;
+}
+
+.activeColor {
+    color: $white;
+    background-color: $blue;
+}
+
+.compare_images label {
+    color: $black;
+}

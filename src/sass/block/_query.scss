@@ -1,0 +1,161 @@
+.query {
+    display: block;
+    width: 100%;
+}
+
+.query_header{
+    padding: 10px 1 0px;
+}
+
+.query_headerList{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+.query_headerItem label {
+    font-size: 12px;
+    color: $black;
+}   
+
+.query_headerInput{
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: $back-color;
+    color: $black;
+    border: $black;
+}
+
+.query_seria{
+    width: 40px;
+}
+
+.query_seriaNumber{
+    width: 85px;
+}
+
+.query_pinfl{
+    width: 145px;
+}
+
+.query_macAddres{
+    width: 170px;
+}
+
+.query_searchImg {
+    padding: 0;
+    width: 80px;
+    line-height: 23px;
+    font-size: 11px;
+}
+
+.query_searchBtn {
+    font-weight: 500;
+    font-size: 16px;
+    padding: 5px 15px;
+    color: $white;
+    border-radius: 5px;
+    border: none;
+    background-color: $blue;
+}
+
+.query_searchBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.query_searchBtn:active {
+    opacity: 0.4;
+}
+
+
+.query_list {
+    list-style-type: none;
+}
+
+.query_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.query_check {
+    width: 10px;
+}
+
+.table {
+    display: block;
+    overflow-y: scroll;
+    max-height: 80vh;
+    color: $black;
+}
+
+
+.tbody th{
+    padding: 5px;
+    border: 1px solid $blue;
+}
+
+.tbody tr:hover {
+    background-color: $hover-table;
+}
+
+.query_th{
+    width: 30px;
+}
+
+.query_check {
+    min-width: 20px;
+}
+.query_checkInput {
+    width: 20px;
+    height: 20px;
+}
+
+.tableHead {
+    background-color: $blue;
+}
+
+.tableHead p {
+    color: $white;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.query_img img , .query_baseImg img{
+    height: 60px !important;
+    min-width: 60px;
+}
+
+.query_macAddredd {
+    min-width: 80px;
+}
+
+.query_fullName {
+    min-width: 150px !important;
+}
+
+.delete_button{
+    display: block;
+    padding: 10px 30px;
+    margin-top: 20px;
+    margin-left: auto;
+    color: $white;
+    background-color: #F16B4D;
+    border-radius: 5px;
+    border: none;
+}
+
+.delete_button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.delete_button:active {
+    opacity: 0.4;
+}

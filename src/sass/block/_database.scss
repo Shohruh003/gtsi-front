@@ -1,0 +1,20 @@
+.database_itemBtn {
+    padding: 5px 5px;
+    border-radius: 5px;
+    background-color: $blue;
+    color: $white;
+    border: none;
+}
+
+.database_itemBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.database_itemBtn:active {
+    opacity: 0.4;
+}
+
+.query_fullName {
+    min-width: 120px;
+}
