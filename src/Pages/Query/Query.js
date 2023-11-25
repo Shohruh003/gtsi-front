@@ -34,7 +34,7 @@ function Query() {
                     </li>
 
                     <li className="query_headerItem query_macAddres">
-                        <label>MAC Adress</label>
+                        <label>MAC Address</label>
                         <input className="query_headerInput" type="text" placeholder="26-33-67-7A-C5-27" />
                     </li>
 
@@ -68,7 +68,7 @@ function Query() {
         <p>MAC Адрес</p>
       </th>
       <th>
-        <p>Фото</p>
+        <p>Видео</p>
       </th>
       <th>
         <p>Ф.И.О</p>

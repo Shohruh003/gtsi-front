@@ -462,16 +462,18 @@ img {
 .compare_image {
   display: block;
   width: 100%;
+  font-size: 8px;
   line-height: 30px;
   border-radius: 5px;
   border: 1px solid #00B8D7;
   margin: 0;
+  background-color: #00B8D7;
   cursor: pointer;
 }
 
 .compare_label {
   display: block;
-  width: 45%;
+  width: 100px;
   font-size: 14px;
   text-align: center;
 }
@@ -685,8 +687,41 @@ img {
   font-weight: 700;
 }
 
+.canvasjs-chart-credit {
+  display: none;
+}
+
+.canvasjs-chart-canvas {
+  margin-left: 20px;
+}
+
+.column .css-13aj3tc-MuiChartsSurface-root {
+  margin-top: -70px;
+  margin-left: -35px;
+}
+
+.css-1vuxth3-MuiBarElement-root {
+  fill: #00B8D7 !important;
+}
+
+.css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tick, .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-line {
+  stroke: #393C42 !important;
+}
+
+.css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tickLabel {
+  fill: #393C42 !important;
+}
+
 .darkmode .requestItem, .darkmode .request_text, .darkmode p, .darkmode .base_totalNum {
   color: #F5F5F5;
+}
+
+.darkmode .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tick, .darkmode .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-line {
+  stroke: #F5F5F5 !important;
+}
+
+.darkmode .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tickLabel {
+  fill: #F5F5F5 !important;
 }
 
 .query {
@@ -754,7 +789,11 @@ img {
   padding: 0;
   width: 80px;
   line-height: 23px;
-  font-size: 11px;
+  font-size: 6px;
+}
+
+.query_searchImg input {
+  background-color: #00B8D7;
 }
 
 .query_searchBtn {

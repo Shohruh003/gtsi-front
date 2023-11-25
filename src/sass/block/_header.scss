@@ -101,16 +101,18 @@
 .compare_image {
     display: block;
     width: 100%;
+    font-size: 8px;
     line-height: 30px;
     border-radius: 5px;
     border: 1px solid $blue;
     margin: 0;
+    background-color: $blue;
     cursor: pointer;
 }
 
 .compare_label {
     display: block;
-    width: 45%;
+    width: 100px;
     font-size: 14px;
     text-align: center;
 

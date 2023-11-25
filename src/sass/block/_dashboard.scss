@@ -106,9 +106,41 @@
     font-weight: 700;
 }
 
+.canvasjs-chart-credit {
+    display: none;
+}
+
+.canvasjs-chart-canvas {
+    margin-left: 20px;
+}
+
+.column .css-13aj3tc-MuiChartsSurface-root {
+    margin-top: -70px;
+    margin-left: -35px;
+}
+
+.css-1vuxth3-MuiBarElement-root{
+    fill: $blue !important;
+}
+
+.css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tick, .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-line {
+    stroke: $black !important;
+}
+
+.css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tickLabel {
+    fill: $black !important;
+}
 
 // ======================= dark mode =============
 
 .darkmode .requestItem, .darkmode .request_text, .darkmode p , .darkmode .base_totalNum{
     color: $dark-black;
+}
+
+.darkmode .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tick, .darkmode .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-line {
+    stroke: $white !important;
+}
+
+.darkmode .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tickLabel {
+    fill: $white !important;
 }

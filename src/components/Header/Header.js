@@ -12,7 +12,6 @@ function Header() {
 
   const {isDarkMode, setIsDarkMode} = useContext(ThemeContext)
 
-  console.log(isDarkMode);
 
   useEffect(() => {
     const body = document.querySelector('body');
@@ -26,7 +25,6 @@ function Header() {
         icon.classList.remove('animated');
       }, 500);
     }
-console.log(isDarkMode);
     if (isDarkMode) {
       body.classList.add('darkmode');
       document.body.classList.add('dark-mode');
@@ -86,11 +84,11 @@ console.log(isDarkMode);
           <div className="compare_images">
             <label className={`compare_label ${isDarkMode ? 'darkmode' : ''}`}>
               фото1
-              <input className="compare_image compare_image1" type="file" name="image1" />
+              <input id="fileInput" className="compare_image compare_image1" type="file" name="image1" placeholder="image1" />
             </label>
             <label className={`compare_label ${isDarkMode ? 'darkmode' : ''}`}>
               фото2
-              <input className="compare_image compare_image2" type="file" name="image2" />
+              <input id="fileInput" className="compare_image compare_image2" type="file" name="image2" />
             </label>
           </div>
           <button className={`compare_button ${isDarkMode ? 'darkmode' : ''}`} type="submit">
