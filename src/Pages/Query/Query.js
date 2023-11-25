@@ -110,7 +110,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -127,7 +127,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_baseImg">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -154,7 +154,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -171,7 +171,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_baseImg">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -198,7 +198,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -215,7 +215,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_baseImg">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -242,7 +242,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -259,7 +259,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_baseImg">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -286,7 +286,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -303,7 +303,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_baseImg">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -330,7 +330,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -347,7 +347,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_baseImg">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -374,7 +374,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -391,7 +391,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_baseImg">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -418,7 +418,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -435,7 +435,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_baseImg">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -462,7 +462,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -479,7 +479,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_baseImg">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -506,7 +506,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>
@@ -523,7 +523,7 @@ function Query() {
                     </th>
                     <th>
                     <p className="query_baseImg">
-                        <img src={PeopleImg} width={50} height={50} alt="image"/>
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
                     </p>
                     </th>
                     <th>

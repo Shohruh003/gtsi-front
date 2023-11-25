@@ -687,28 +687,20 @@ img {
   font-weight: 700;
 }
 
-.canvasjs-chart-credit {
-  display: none;
-}
-
-.canvasjs-chart-canvas {
-  margin-left: 20px;
-}
-
 .column .css-13aj3tc-MuiChartsSurface-root {
   margin-top: -70px;
   margin-left: -35px;
 }
 
-.css-1vuxth3-MuiBarElement-root {
+.column .css-1vuxth3-MuiBarElement-root {
   fill: #00B8D7 !important;
 }
 
-.css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tick, .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-line {
+.column .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tick, .column .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-line {
   stroke: #393C42 !important;
 }
 
-.css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tickLabel {
+.column .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tickLabel {
   fill: #393C42 !important;
 }
 
