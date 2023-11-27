@@ -29,13 +29,13 @@ function Query() {
                     </li>
 
                     <li className="query_headerItem query_pinfl">
-                        <label>PINFL</label>
+                        <label>ПИНФЛ</label>
                         <input className="query_headerInput" type="text" placeholder="********" maxLength={14} minLength={14}/>
                     </li>
 
                     <li className="query_headerItem query_macAddres">
-                        <label>MAC Address</label>
-                        <input className="query_headerInput" type="text" placeholder="26-33-67-7A-C5-27" />
+                        <label>УИД</label>
+                        <input className="query_headerInput" type="text" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" />
                     </li>
 
                     <li className="query_headerItem query_searchImg">
@@ -65,10 +65,10 @@ function Query() {
         <p>Время</p>
       </th>
       <th>
-        <p>MAC Адрес</p>
+      <p>УИД</p>
       </th>
       <th>
-        <p>Видео</p>
+        <p>Медиа</p>
       </th>
       <th>
         <p>Ф.И.О</p>
@@ -86,7 +86,7 @@ function Query() {
         <p>Фото в базе</p>
       </th>
       <th>
-        <p>PHISH Атака</p>
+        <p>ФИШ Атака</p>
       </th>
     </tr>
   </thead>
@@ -106,7 +106,7 @@ function Query() {
                     <p className="query_time">16:00:32</p>
                     </th>
                     <th>
-                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    <p className="query_uniqueId">00112233-4455-6677-8899-aabbccddeeff</p>
                     </th>
                     <th>
                     <p className="query_img">
@@ -150,7 +150,7 @@ function Query() {
                     <p className="query_time">16:00:32</p>
                     </th>
                     <th>
-                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    <p className="query_uniqueId">00112233-4455-6677-8899-aabbccddeeff</p>
                     </th>
                     <th>
                     <p className="query_img">
@@ -194,7 +194,7 @@ function Query() {
                     <p className="query_time">16:00:32</p>
                     </th>
                     <th>
-                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    <p className="query_uniqueId">00112233-4455-6677-8899-aabbccddeeff</p>
                     </th>
                     <th>
                     <p className="query_img">
@@ -238,7 +238,7 @@ function Query() {
                     <p className="query_time">16:00:32</p>
                     </th>
                     <th>
-                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    <p className="query_uniqueId">00112233-4455-6677-8899-aabbccddeeff</p>
                     </th>
                     <th>
                     <p className="query_img">
@@ -282,7 +282,7 @@ function Query() {
                     <p className="query_time">16:00:32</p>
                     </th>
                     <th>
-                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    <p className="query_uniqueId">00112233-4455-6677-8899-aabbccddeeff</p>
                     </th>
                     <th>
                     <p className="query_img">
@@ -326,7 +326,7 @@ function Query() {
                     <p className="query_time">16:00:32</p>
                     </th>
                     <th>
-                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    <p className="query_uniqueId">00112233-4455-6677-8899-aabbccddeeff</p>
                     </th>
                     <th>
                     <p className="query_img">
@@ -370,7 +370,7 @@ function Query() {
                     <p className="query_time">16:00:32</p>
                     </th>
                     <th>
-                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    <p className="query_uniqueId">00112233-4455-6677-8899-aabbccddeeff</p>
                     </th>
                     <th>
                     <p className="query_img">
@@ -414,7 +414,7 @@ function Query() {
                     <p className="query_time">16:00:32</p>
                     </th>
                     <th>
-                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    <p className="query_uniqueId">00112233-4455-6677-8899-aabbccddeeff</p>
                     </th>
                     <th>
                     <p className="query_img">
@@ -458,7 +458,7 @@ function Query() {
                     <p className="query_time">16:00:32</p>
                     </th>
                     <th>
-                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    <p className="query_uniqueId">00112233-4455-6677-8899-aabbccddeeff</p>
                     </th>
                     <th>
                     <p className="query_img">
@@ -502,7 +502,7 @@ function Query() {
                     <p className="query_time">16:00:32</p>
                     </th>
                     <th>
-                    <p className="query_macAddredd">26-33-67-7A-C5-27</p>
+                    <p className="query_uniqueId">00112233-4455-6677-8899-aabbccddeeff</p>
                     </th>
                     <th>
                     <p className="query_img">

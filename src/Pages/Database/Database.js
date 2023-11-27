@@ -23,12 +23,12 @@ function Database() {
                     </li>
 
                     <li className="query_headerItem query_pinfl">
-                        <label>PINFL</label>
+                        <label>ПИНФЛ</label>
                         <input className="query_headerInput" type="text" placeholder="********" maxLength={14} minLength={14}/>
                     </li>
 
                     <li className="query_headerItem query_macAddres">
-                        <label>MAC Address</label>
+                        <label>УИД</label>
                         <input className="query_headerInput" type="text" placeholder="26-33-67-7A-C5-27" />
                     </li>
 
@@ -64,13 +64,13 @@ function Database() {
         <p>Дата рождения</p>
       </th>
       <th>
-        <p>PINFL</p>
+        <p>ПИНФЛ</p>
       </th>
       <th>
         <p>Место рождения</p>
       </th>
       <th>
-        <p>Дата выдачи пассспорта</p>
+        <p>Дата выдачи пасспорта</p>
       </th>
       <th>
       <p>Подробно</p>
@@ -101,52 +101,16 @@ function Database() {
                     <p className="query_one_n">17.02.2003</p>
                     </th>
                     <th>
-                    <p className="query_one_one">37dh77dd66</p>
+                    <p className="query_pnfl">37dh77dd66</p>
                     </th>
                     <th>
-                    <p className="query_one_one">Ташкент / Узбекистан</p>
+                    <p className="query_country">Ташкент / Узбекистан</p>
                     </th>
                     <th>
-                    <p className="query_one_one">16.02.2029</p>
+                    <p className="query_passDate">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Побробно</button>
-                    </th>
-    </tr>
-
-    <tr>
-                    <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p></th>
-                    <th>
-                    <p className="query_id">31456</p>
-                    </th>
-                    <th>
-                    <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="People"/>
-                    </p>
-                    </th>
-                    <th>
-                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
-                    </th>
-                    <th>
-                    <p className="query_pass_series">AC 1827260</p>
-                    </th>
-                    <th>
-                    <p className="query_one_n">17.02.2003</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">37dh77dd66</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">Ташкент / Узбекистан</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">16.02.2029</p>
-                    </th>
-                    <th>
-                    <button className='database_itemBtn' type='button'>Побробно</button>
+                    <button className='database_itemBtn' type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -182,7 +146,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Побробно</button>
+                    <button className='database_itemBtn' type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -218,7 +182,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Побробно</button>
+                    <button className='database_itemBtn' type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -254,7 +218,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Побробно</button>
+                    <button className='database_itemBtn' type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -290,7 +254,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Побробно</button>
+                    <button className='database_itemBtn' type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -326,7 +290,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Побробно</button>
+                    <button className='database_itemBtn' type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -362,7 +326,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Побробно</button>
+                    <button className='database_itemBtn' type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -398,7 +362,43 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Побробно</button>
+                    <button className='database_itemBtn' type='button'>Подробно </button>
+                    </th>
+    </tr>
+
+    <tr>
+                    <th className='query_th'>
+                    <p className="query_check">
+                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    </p></th>
+                    <th>
+                    <p className="query_id">31456</p>
+                    </th>
+                    <th>
+                    <p className="query_img">
+                        <img src={PeopleImg} width={50} height={50} alt="People"/>
+                    </p>
+                    </th>
+                    <th>
+                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
+                    </th>
+                    <th>
+                    <p className="query_pass_series">AC 1827260</p>
+                    </th>
+                    <th>
+                    <p className="query_one_n">17.02.2003</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">37dh77dd66</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">Ташкент / Узбекистан</p>
+                    </th>
+                    <th>
+                    <p className="query_one_one">16.02.2029</p>
+                    </th>
+                    <th>
+                    <button className='database_itemBtn' type='button'>Подробно </button>
                     </th>
     </tr>
   </tbody>
