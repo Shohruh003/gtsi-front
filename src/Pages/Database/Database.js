@@ -117,7 +117,7 @@ function Database() {
                     <p className="query_passDate">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' onClick={() => setUserModal(true)} type='button'>Подробно </button>
+                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -153,7 +153,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно </button>
+                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -189,7 +189,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно </button>
+                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -225,7 +225,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно </button>
+                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -261,7 +261,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно </button>
+                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -297,7 +297,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно </button>
+                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -333,7 +333,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно</button>
+                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно</button>
                     </th>
     </tr>
 
@@ -369,7 +369,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно</button>
+                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно</button>
                     </th>
     </tr>
 
@@ -405,12 +405,12 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно </button>
+                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
                     </th>
     </tr>
   </tbody>
 </table>
-<button onClick={handleOpen} className='delete_button' type='button'>Удалить</button>
+<button className='delete_button' type='button'>Удалить</button>
 <User open={open} setOpen={setOpen}/>
         </div>
       </div>
