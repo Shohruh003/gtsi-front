@@ -1,13 +1,16 @@
-import React from 'react';
-import Header from "./components/Header/Header";
-import Query from './Pages/Query/Query';
-import Database from './Pages/Database/Database';
+import React, { useContext } from 'react';
 import Private from './Private';
+import { TokenContext } from './context/tokenContext';
+import Public from './Public';
 
 function App() {
-  return (
-          <Private/>
-  );
+  const {token} = useContext(TokenContext)
+    if (token) {
+    return  <Private/>
+    }
+
+    return <Public/>
+
 }
 
 export default App;

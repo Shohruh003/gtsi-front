@@ -1,10 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Speed from '../../images/speed.png';
 import { ThemeContext } from '../../context/themeContext';
 import { BarChart } from '@mui/x-charts';
+import axios from 'axios';
+import { TokenContext } from '../../context/tokenContext';
 
 function Dashboard() {
   const { isDarkMode } = useContext(ThemeContext);
+  const [dashboard, setDashboard] = useState()
+  const {token} = useContext(TokenContext)
+  const [date01, setDate01] =useState()
+  useEffect(() => {
+    axios.get('https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/request/dashboard/',{
+    headers: {
+        'accept': 'application/json',
+        'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
+        "Authorization": `Token ${token}`
+      }
+})
+    .then((response) => {
+        setDashboard(response.data);
+        })
+    .catch((error) => {
+      console.log(error);
+    });
+}, [])
+
+console.log(dashboard);
+
+  const avg_duration = dashboard?.avg_duration?.toFixed(2);
+  console.log(avg_duration);
 
   function getLastWeekDates() {
     const currentDate = new Date();
@@ -35,7 +60,7 @@ function Dashboard() {
           <div className="dashboard_base">
             <div className="base_total">
               <p className="base_name">
-                Всего записей в базе <span className="base_totalNum">28 400 000</span>
+                Всего записей в базе <span className="base_totalNum">11</span>
               </p>
               <div className="column">
                 <BarChart
@@ -55,7 +80,7 @@ function Dashboard() {
             <div className="dashboard_request">
               <div className="request_speed">
                 <img src={Speed} width="40" height="40" alt="speedIcon" />
-                <span className="speed_number">0,4 сек</span>
+                <span className="speed_number">{avg_duration} сек</span>
               </div>
               <p className="request_speedText">Средняя скорость обработки запроса</p>
             </div>
@@ -63,34 +88,34 @@ function Dashboard() {
 
           <div className="total_request">
             <p className="request_text">
-              Всего запросов: <span className="request_number">1 000 000</span>
+              Всего запросов: <span className="request_number">{dashboard?.total_count}</span>
             </p>
             <ul className="requestList">
               <li className="requestItem">
-                Сегодня <span className="requestItem_number">50</span>
+                Сегодня <span className="requestItem_number">{dashboard?.this_year}</span>
               </li>
               <li className="requestItem">
-                За месяц <span className="requestItem_number">3 422</span>
+                За месяц <span className="requestItem_number">{dashboard?.this_month}</span>
               </li>
               <li className="requestItem">
-                За год <span className="requestItem_number">16 556</span>
+                За год <span className="requestItem_number">{dashboard?.today}</span>
               </li>
             </ul>
           </div>
 
           <div className="total_request">
             <p className="request_text">
-              Всего фишинг атак: <span className="request_number">235</span>
+              Всего фишинг атак: <span className="request_number">{dashboard?.total_count_attack}</span>
             </p>
             <ul className="requestList">
               <li className="requestItem">
-                Сегодня <span className="requestItem_number">10</span>
+                Сегодня <span className="requestItem_number">{dashboard?.this_year_attack}</span>
               </li>
               <li className="requestItem">
-                За месяц <span className="requestItem_number">452</span>
+                За месяц <span className="requestItem_number">{dashboard?.this_month_attack}</span>
               </li>
               <li className="requestItem">
-                Загод <span className="requestItem_number">1 235</span>
+                Загод <span className="requestItem_number">{dashboard?.today_attack}</span>
               </li>
             </ul>
           </div>

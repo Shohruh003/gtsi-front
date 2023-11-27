@@ -1,14 +1,32 @@
 import '../../sass/main.css'
-import PeopleImg from '../../images/photo_2022-10-13_15-28-30.jpg'
-import { useState } from 'react';
-import User from '../../Modal/User/User';
-function Database() {
- const [userModal, setUserModal] = useState()
+import PeopleImg from '../../images/photo_people.jpg'
 
+import { useContext, useEffect, useState } from 'react';
+import User from '../../Modal/User/User';
+import { TokenContext } from '../../context/tokenContext';
+import axios from 'axios';
+function Database() {
+    const [database, setDatabase] = useState()
+    const {token} = useContext(TokenContext)
  const [open, setOpen] = useState(false);
  const handleOpen = () => {
     setOpen(true);
   };
+    useEffect(() => {
+        axios.get('https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/card/',{
+        headers: {
+            'accept': 'application/json',
+            'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
+            "Authorization": `Token ${token}`
+          }
+    })
+        .then((response) => {
+            setDatabase(response.data.results);
+            })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, [])
     return (
         <div className="query">
         <div className="query_inner">
@@ -85,329 +103,43 @@ function Database() {
     </tr>
   </thead>
   <tbody className='tbody'>
-    <tr>
-                    <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p></th>
-                    <th>
-                    <p className="query_id">31456</p>
-                    </th>
-                    <th>
-                    <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="People"/>
-                    </p>
-                    </th>
-                    <th>
-                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
-                    </th>
-                    <th>
-                    <p className="query_pass_series">AC 1827260</p>
-                    </th>
-                    <th>
-                    <p className="query_one_n">17.02.2003</p>
-                    </th>
-                    <th>
-                    <p className="query_pnfl">37dh77dd66</p>
-                    </th>
-                    <th>
-                    <p className="query_country">Ташкент / Узбекистан</p>
-                    </th>
-                    <th>
-                    <p className="query_passDate">16.02.2029</p>
-                    </th>
-                    <th>
-                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
-                    </th>
-    </tr>
-
-    <tr>
-                    <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p></th>
-                    <th>
-                    <p className="query_id">31456</p>
-                    </th>
-                    <th>
-                    <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="People"/>
-                    </p>
-                    </th>
-                    <th>
-                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
-                    </th>
-                    <th>
-                    <p className="query_pass_series">AC 1827260</p>
-                    </th>
-                    <th>
-                    <p className="query_one_n">17.02.2003</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">37dh77dd66</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">Ташкент / Узбекистан</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">16.02.2029</p>
-                    </th>
-                    <th>
-                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
-                    </th>
-    </tr>
-
-    <tr>
-                    <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p></th>
-                    <th>
-                    <p className="query_id">31456</p>
-                    </th>
-                    <th>
-                    <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="People"/>
-                    </p>
-                    </th>
-                    <th>
-                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
-                    </th>
-                    <th>
-                    <p className="query_pass_series">AC 1827260</p>
-                    </th>
-                    <th>
-                    <p className="query_one_n">17.02.2003</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">37dh77dd66</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">Ташкент / Узбекистан</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">16.02.2029</p>
-                    </th>
-                    <th>
-                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
-                    </th>
-    </tr>
-
-    <tr>
-                    <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p></th>
-                    <th>
-                    <p className="query_id">31456</p>
-                    </th>
-                    <th>
-                    <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="People"/>
-                    </p>
-                    </th>
-                    <th>
-                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
-                    </th>
-                    <th>
-                    <p className="query_pass_series">AC 1827260</p>
-                    </th>
-                    <th>
-                    <p className="query_one_n">17.02.2003</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">37dh77dd66</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">Ташкент / Узбекистан</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">16.02.2029</p>
-                    </th>
-                    <th>
-                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
-                    </th>
-    </tr>
-
-    <tr>
-                    <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p></th>
-                    <th>
-                    <p className="query_id">31456</p>
-                    </th>
-                    <th>
-                    <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="People"/>
-                    </p>
-                    </th>
-                    <th>
-                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
-                    </th>
-                    <th>
-                    <p className="query_pass_series">AC 1827260</p>
-                    </th>
-                    <th>
-                    <p className="query_one_n">17.02.2003</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">37dh77dd66</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">Ташкент / Узбекистан</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">16.02.2029</p>
-                    </th>
-                    <th>
-                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
-                    </th>
-    </tr>
-
-    <tr>
-                    <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p></th>
-                    <th>
-                    <p className="query_id">31456</p>
-                    </th>
-                    <th>
-                    <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="People"/>
-                    </p>
-                    </th>
-                    <th>
-                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
-                    </th>
-                    <th>
-                    <p className="query_pass_series">AC 1827260</p>
-                    </th>
-                    <th>
-                    <p className="query_one_n">17.02.2003</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">37dh77dd66</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">Ташкент / Узбекистан</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">16.02.2029</p>
-                    </th>
-                    <th>
-                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
-                    </th>
-    </tr>
-
-    <tr>
-                    <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p></th>
-                    <th>
-                    <p className="query_id">31456</p>
-                    </th>
-                    <th>
-                    <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="People"/>
-                    </p>
-                    </th>
-                    <th>
-                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
-                    </th>
-                    <th>
-                    <p className="query_pass_series">AC 1827260</p>
-                    </th>
-                    <th>
-                    <p className="query_one_n">17.02.2003</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">37dh77dd66</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">Ташкент / Узбекистан</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">16.02.2029</p>
-                    </th>
-                    <th>
-                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно</button>
-                    </th>
-    </tr>
-
-    <tr>
-                    <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p></th>
-                    <th>
-                    <p className="query_id">31456</p>
-                    </th>
-                    <th>
-                    <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="People"/>
-                    </p>
-                    </th>
-                    <th>
-                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
-                    </th>
-                    <th>
-                    <p className="query_pass_series">AC 1827260</p>
-                    </th>
-                    <th>
-                    <p className="query_one_n">17.02.2003</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">37dh77dd66</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">Ташкент / Узбекистан</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">16.02.2029</p>
-                    </th>
-                    <th>
-                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно</button>
-                    </th>
-    </tr>
-
-    <tr>
-                    <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p></th>
-                    <th>
-                    <p className="query_id">31456</p>
-                    </th>
-                    <th>
-                    <p className="query_img">
-                        <img src={PeopleImg} width={50} height={50} alt="People"/>
-                    </p>
-                    </th>
-                    <th>
-                    <p className="query_fullName">Shohruh Azimov Nabijon o'g'li</p>
-                    </th>
-                    <th>
-                    <p className="query_pass_series">AC 1827260</p>
-                    </th>
-                    <th>
-                    <p className="query_one_n">17.02.2003</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">37dh77dd66</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">Ташкент / Узбекистан</p>
-                    </th>
-                    <th>
-                    <p className="query_one_one">16.02.2029</p>
-                    </th>
-                    <th>
-                    <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
-                    </th>
-    </tr>
+        {database?.map((item, index) => (
+                <tr key={index}>
+                <th className='query_th'>
+                <p className="query_check">
+                    <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                </p></th>
+                <th>
+                <p className="query_id">{item?.id ? item?.id : "Пустой"}</p>
+                </th>
+                <th>
+                <p className="query_img">
+                    <img src={item?.photo ? item?.photo : PeopleImg} width={50} height={50} alt="People"/>
+                </p>
+                </th>
+                <th>
+                <p className="query_fullName">{item?.full_name ? item?.full_name : "Пустой"}</p>
+                </th>
+                <th>
+                <p className="query_pass_series">{item?.passport_series ? item?.passport_series : "Пустой"} {item?.passport_number ? item?.passport_number : "Пустой"}</p>
+                </th>
+                <th>
+                <p className="query_one_n">{item?.birth_date ? item?.birth_date : "Пустой"}</p>
+                </th>
+                <th>
+                <p className="query_pnfl">{item?.pinfl ? item?.pinfl : "Пустой"}</p>
+                </th>
+                <th>
+                <p className="query_country">{item?.birth_country_name ? item?.birth_country_name : "Пустой"}</p>
+                </th>
+                <th>
+                <p className="query_passDate">{item?.passport_expiration ? item?.passport_expiration : "Пустой"}</p>
+                </th>
+                <th>
+                <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
+                </th>
+</tr>
+        ))}
   </tbody>
 </table>
 <button className='delete_button' type='button'>Удалить</button>

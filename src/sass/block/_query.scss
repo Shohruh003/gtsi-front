@@ -147,8 +147,10 @@
 }
 
 .query_img img , .query_baseImg img{
-    height: 60px !important;
+    height: auto;
+    max-height: 100px !important;
     min-width: 60px;
+    max-height: 60px;
 }
 
 .query_macAddredd {
@@ -181,4 +183,8 @@
 
 .query_uniqueId{
     font-size: 12px;
+}
+
+.Да {
+    background-color: red;
 }
