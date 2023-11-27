@@ -534,7 +534,6 @@ function Query() {
 </table>
 
 <button className='delete_button' type='button'>Удалить</button>
-            
         </div>
       </div>
     );

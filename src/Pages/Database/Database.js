@@ -1,7 +1,14 @@
 import '../../sass/main.css'
 import PeopleImg from '../../images/photo_2022-10-13_15-28-30.jpg'
+import { useState } from 'react';
+import User from '../../Modal/User/User';
 function Database() {
- 
+ const [userModal, setUserModal] = useState()
+
+ const [open, setOpen] = useState(false);
+ const handleOpen = () => {
+    setOpen(true);
+  };
     return (
         <div className="query">
         <div className="query_inner">
@@ -70,7 +77,7 @@ function Database() {
         <p>Место рождения</p>
       </th>
       <th>
-        <p>Дата выдачи пасспорта</p>
+        <p>Дата выдачи паспорта</p>
       </th>
       <th>
       <p>Подробно</p>
@@ -110,7 +117,7 @@ function Database() {
                     <p className="query_passDate">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно </button>
+                    <button className='database_itemBtn' onClick={() => setUserModal(true)} type='button'>Подробно </button>
                     </th>
     </tr>
 
@@ -326,7 +333,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно </button>
+                    <button className='database_itemBtn' type='button'>Подробно</button>
                     </th>
     </tr>
 
@@ -362,7 +369,7 @@ function Database() {
                     <p className="query_one_one">16.02.2029</p>
                     </th>
                     <th>
-                    <button className='database_itemBtn' type='button'>Подробно </button>
+                    <button className='database_itemBtn' type='button'>Подробно</button>
                     </th>
     </tr>
 
@@ -403,8 +410,8 @@ function Database() {
     </tr>
   </tbody>
 </table>
-<button className='delete_button' type='button'>Удалить</button>
-            
+<button onClick={handleOpen} className='delete_button' type='button'>Удалить</button>
+<User open={open} setOpen={setOpen}/>
         </div>
       </div>
     );
