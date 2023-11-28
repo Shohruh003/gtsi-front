@@ -10,6 +10,56 @@ function Dashboard() {
   const [dashboard, setDashboard] = useState()
   const {token} = useContext(TokenContext)
   const [date01, setDate01] =useState()
+
+  function getLastWeekDates() {
+    const currentDate = new Date();
+    const lastWeekDates = [];
+    const lastWeek = []
+
+    for (let i = 6; i >= 0; i--) {
+      const date = new Date(currentDate);
+      date.setDate(currentDate.getDate() - i);
+      const formattedDate1 = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+      const formattedDate2 = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+      lastWeekDates.push(formattedDate1);
+      lastWeek.push(formattedDate2)
+    }
+
+    return lastWeekDates;
+  }  
+
+  function getLastWeek() {
+    const currentDate = new Date();
+    const lastWeek = []
+
+    for (let i = 6; i >= 0; i--) {
+      const date = new Date(currentDate);
+      date.setDate(currentDate.getDate() - i);
+      const formattedDate2 = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+      lastWeek.push(formattedDate2)
+    }
+
+    return lastWeek;
+  } 
+
+  const results = getLastWeek(); 
+  const result = getLastWeekDates();
+  const date1 = result[0];
+  const date2 = result[1];
+  const date3 = result[2];
+  const date4 = result[3];
+  const date5 = result[4];
+  const date6 = result[5];
+  const date7 = result[6];
+
+  let week1 = null
+let week2 = null
+let week3 = null
+let week4 = null
+let week5 = null
+let week6 = null
+
+
   useEffect(() => {
     axios.get('https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/request/dashboard/',{
     headers: {
@@ -26,34 +76,35 @@ function Dashboard() {
     });
 }, [])
 
-console.log(dashboard);
-
-  const avg_duration = dashboard?.avg_duration?.toFixed(2);
-  console.log(avg_duration);
-
-  function getLastWeekDates() {
-    const currentDate = new Date();
-    const lastWeekDates = [];
-
-    for (let i = 6; i >= 0; i--) {
-      const date = new Date(currentDate);
-      date.setDate(currentDate.getDate() - i);
-      const formattedDate = `${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-      lastWeekDates.push(formattedDate);
-    }
-
-    return lastWeekDates;
+dashboard?.diagram?.map((e) => {
+  if(e.date === results[6]) {
+    week6 = e.count
   }
 
-  const result = getLastWeekDates();
-  const date1 = result[0];
-  const date2 = result[1];
-  const date3 = result[2];
-  const date4 = result[3];
-  const date5 = result[4];
-  const date6 = result[5];
-  const date7 = result[6];
+  if(e.date === results[5]) {
+    week5 = e.count
+  }
 
+  if(e.date === results[4]) {
+    week4 = e.count
+  }
+
+  if(e.date === results[3]) {
+    week3 = e.count
+  }
+
+  if(e.date === results[2]) {
+    week2 = e.count
+  }
+
+  if(e.date === results[1]) {
+    week1 = e.count
+  }
+})
+
+
+  const avg_duration = dashboard?.avg_duration?.toFixed(2);
+  
   return (
       <div className={`dashboard ${isDarkMode ? 'darkmode' : ''}`}>
         <div className="dashboard_inner">
@@ -70,7 +121,7 @@ console.log(dashboard);
                       data: [date2, date3, date4, date5, date6, date7],
                     },
                   ]}
-                  series={[{ data: [4, 3, 5, 4, 6, 7] }]}
+                  series={[{ data: [week1,week2,week3,week4,week5,week6] }]}
                   width={400}
                   height={190}
                 />

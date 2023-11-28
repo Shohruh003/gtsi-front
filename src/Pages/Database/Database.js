@@ -9,24 +9,115 @@ function Database() {
     const [database, setDatabase] = useState()
     const {token} = useContext(TokenContext)
  const [open, setOpen] = useState(false);
+ const [pasNum, setPasNum] = useState()
+ const [pasSer, setPasSer] = useState()
+ const [pinfl, setPinfl] = useState()
+ const [name, setName] = useState()
+ const [selectedItems, setSelectedItems] = useState([]);
+
+ const handleCheckboxChange = (event, itemId) => {
+  const isChecked = event.target.checked;
+  if (isChecked) {
+    setSelectedItems((prevSelectedItems) => [...prevSelectedItems, itemId]);
+  } else {
+    setSelectedItems((prevSelectedItems) =>
+      prevSelectedItems.filter((id) => id !== itemId)
+    );
+  }
+};
+
+const handleDelete = async () => {
+  try {
+    if (selectedItems.length === 0) {
+      console.log('No items selected for deletion.');
+      return;
+    }
+    const timestamp = Date.now();
+    const response = await axios.delete(
+      `https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/card/${selectedItems.join(',')}/`,
+      {
+        headers: {
+          accept: 'application/json',
+          'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
+          Authorization: `Token ${token}`,
+        },
+        params: {
+          timestamp: timestamp,
+        },
+      }
+    );
+
+    setDatabase((prevDatabase) =>
+        prevDatabase.filter((item) => !selectedItems.includes(item.id))
+      );
+      setSelectedItems([]);
+  } catch (error) {
+    console.error('Error deleting items:', error);
+  }
+};
+
+ const handleNameChange = (event) => {
+  const searchName = event.target.value;
+  setName(searchName);
+};
+
+ const handlePasSeriaChange = (event) => {
+  const searchName = event.target.value;
+  setPasSer(searchName);
+};
+
+const handlePasNumberChange = (event) => {
+  const searchName = event.target.value;
+  setPasNum(searchName);
+};
+
+const handlePinflChange = (event) => {
+  const searchName = event.target.value;
+  setPinfl(searchName);
+};
+
  const handleOpen = () => {
     setOpen(true);
   };
-    useEffect(() => {
-        axios.get('https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/card/',{
-        headers: {
-            'accept': 'application/json',
-            'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
-            "Authorization": `Token ${token}`
+  useEffect(() => {
+
+    const fetchPupils = async () => {
+      try {
+        const params = {};
+        if (name) {
+          params.full_name__icontains = name;
+        }
+
+        if (pasSer) {
+          params.passport_series__icontains = pasSer;
+        }
+
+        if (pasNum) {
+          params.passport_number__icontains = pasNum;
+        }
+
+        if (pinfl) {
+          params.pinfl__icontains = pinfl;
+        }
+        const response = await axios.get(
+          'https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/card',
+          {
+            params,
+            headers: {
+              'accept': 'application/json',
+              'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
+              "Authorization": `Token ${token}`
+            }
           }
-    })
-        .then((response) => {
-            setDatabase(response.data.results);
-            })
-        .catch((error) => {
-          console.log(error);
-        });
-    }, [])
+        );
+        setDatabase(response.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchPupils();
+  }, [name, pasSer, pasNum, pinfl]);
     return (
         <div className="query">
         <div className="query_inner">
@@ -34,22 +125,22 @@ function Database() {
                 <ul className="query_headerList">
                     <li className="query_headerItem">
                         <label>Ф.И.О</label>
-                        <input className="query_headerInput" type="text" placeholder="Ф.И.О" />
+                        <input onChange={handleNameChange} className="query_headerInput" type="text" placeholder="Ф.И.О" />
                     </li>
 
                     <li className="query_headerItem query_seria">
                         <label>Серия</label>
-                        <input className="query_headerInput" type="text" placeholder="AB" maxLength={2} minLength={2}/>
+                        <input onChange={handlePasSeriaChange} className="query_headerInput" type="text" placeholder="AB" maxLength={2} minLength={2}/>
                     </li>
 
                     <li className="query_headerItem query_seriaNumber">
                         <label>Номер</label>
-                        <input className="query_headerInput" type="text" placeholder="1234567" maxLength={7} minLength={7}/>
+                        <input onChange={handlePasNumberChange} className="query_headerInput" type="text" placeholder="1234567" maxLength={7} minLength={7}/>
                     </li>
 
                     <li className="query_headerItem query_pinfl">
                         <label>ПИНФЛ</label>
-                        <input className="query_headerInput" type="text" placeholder="********" maxLength={14} minLength={14}/>
+                        <input onChange={handlePinflChange} className="query_headerInput" type="text" placeholder="********" maxLength={14} minLength={14}/>
                     </li>
 
                     <li className="query_headerItem query_macAddres">
@@ -107,7 +198,8 @@ function Database() {
                 <tr key={index}>
                 <th className='query_th'>
                 <p className="query_check">
-                    <input className='query_checkInput' type="checkbox" width={20} height={20}/>
+                    <input checked={selectedItems.includes(item.id)}
+                    onChange={(e) => handleCheckboxChange(e, item.id)} className='query_checkInput' type="checkbox" width={20} height={20}/>
                 </p></th>
                 <th>
                 <p className="query_id">{item?.id ? item?.id : "Пустой"}</p>
@@ -142,7 +234,7 @@ function Database() {
         ))}
   </tbody>
 </table>
-<button className='delete_button' type='button'>Удалить</button>
+<button onClick={handleDelete} className='delete_button' type='button'>Удалить</button>
 <User open={open} setOpen={setOpen}/>
         </div>
       </div>

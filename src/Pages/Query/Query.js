@@ -5,25 +5,82 @@ import { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from '../../context/themeContext';
 import { TokenContext } from '../../context/tokenContext';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Query() {
     const [query, setQuery] = useState()
     const {token} = useContext(TokenContext)
   const {isDarkMode} = useContext(ThemeContext)
-    useEffect(() => {
-        axios.get('https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/request/',{
-        headers: {
-            'accept': 'application/json',
-            'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
-            "Authorization": `Token ${token}`
+  const [name, setName] = useState()
+  const [uid, setUid] = useState()
+
+  const handleNameChange = (event) => {
+    const searchName = event.target.value;
+    setName(searchName);
+  };
+
+
+  const handleUidChange = (event) => {
+    const searchName = event.target.value;
+    setUid(searchName);
+  };
+
+  useEffect(() => {
+
+    const fetchPupils = async () => {
+      try {
+        const params = {};
+        if (name) {
+          params.name__icontains = name;
+        }
+
+        if (uid) {
+          params.uuid__icontains = uid;
+        }
+
+        const response = await axios.get(
+          'https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/request/',
+          {
+            params,
+            headers: {
+              'accept': 'application/json',
+              'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
+              "Authorization": `Token ${token}`
+            }
           }
-    })
-        .then((response) => {
-            setQuery(response.data.results);
-            })
-        .catch((error) => {
-          console.log(error);
-        });
-    }, [])
+        );
+        setQuery(response.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchPupils();
+  }, [name, uid]);
+
+  const handleImage = (evt) => {
+    evt.preventDefault();
+    const [image] = evt.target.elements;
+    const formData = new FormData();
+    formData.append('image', image.files[0]);
+  
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
+        Authorization: `Token ${token}`,
+      },
+    };
+  
+    axios.post('https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/search-faces/', formData, config)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('Лицо не найдено !');
+      });
+  };
 
     return (
       <div className="query">
@@ -32,7 +89,7 @@ function Query() {
                 <ul className={`query_headerList ${isDarkMode ? 'darkmode' : ''}`}>
                     <li className="query_headerItem">
                         <label>Ф.И.О</label>
-                        <input className="query_headerInput" type="text" placeholder="Ф.И.О" />
+                        <input onChange={handleNameChange} className="query_headerInput" type="text" placeholder="Ф.И.О" />
                     </li>
 
                     <li className="query_headerItem query_seria">
@@ -52,16 +109,16 @@ function Query() {
 
                     <li className="query_headerItem query_macAddres">
                         <label>УИД</label>
-                        <input className="query_headerInput" type="text" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" />
+                        <input onChange={handleUidChange} className="query_headerInput" type="text" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" />
                     </li>
 
                     <li className="query_headerItem query_searchImg">
                         <label>Поиск фото</label>
-                        <input className="query_headerInput query_searchImg" type="file" placeholder="Фото" />
+                        <input className="query_headerInput query_searchImg" type="file" name='image' placeholder="Фото" />
                     </li>
 
                     <li className="query_headerItem">
-                        <button className="query_searchBtn" type="submit">Поиск</button>
+                        <button onSubmit={handleImage} className="query_searchBtn" type="submit">Поиск</button>
                     </li>
                 </ul>
             </div>
@@ -69,9 +126,6 @@ function Query() {
             <table className={`table ${isDarkMode ? 'darkmode' : ''}`}>
   <thead>
     <tr className='tableHead'>
-      <th>
-        <p>#</p>
-      </th>
       <th>
         <p>ID</p>
       </th>
@@ -110,11 +164,6 @@ function Query() {
   <tbody className='tbody'>
         {query?.map((item, index) => (
                 <tr key={index}>
-                <th className='query_th'>
-                    <p className="query_check">
-                        <input className='query_checkInput' type="checkbox" width={20} height={20}/>
-                    </p>
-                </th>
                 <th>
                 <p className="query_id">{item.id}</p>
                 </th>
@@ -160,6 +209,7 @@ function Query() {
 </table>
 
 <button className='delete_button' type='button'>Удалить</button>
+<ToastContainer />
         </div>
       </div>
     );

@@ -80,15 +80,60 @@
 }
 
 
+// =================== compare ================
+
+.compare_modal {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    box-shadow: 24;
+    padding: 4;
+    background-color: $white;
+    border-radius: 5px;
+}
+.compareModal_span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 72px;
+}
+
+.compareModal_button {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    margin-left: auto;
+}
+
+.compareModal_button:hover {
+    border: 2px solid $black;
+    cursor: pointer;
+}
+
+.compareModal_button:active {
+    border:none;
+}
+
+.compareModal_header {
+    padding: 10px;
+}
+
 
 // ================================= Theme ===================
 
-.darkmode .box {
+.darkmode .box , .darkmode .compare_modal{
     background-color: $black;
 }
 
-.darkmode .modal_container {
-    color: $white;
+.darkmode .modal_container , .darkmode .compare_modal{
+    p {
+        color: $white;
+    }
 
     svg path{
          fill: $white;

@@ -3,6 +3,12 @@ import TadLogo from '../../images/tad-head.png';
 import '../../sass/main.scss';
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../context/themeContext";
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { TokenContext } from "../../context/tokenContext";
+import Compare from "../../Modal/Compare/Compare";
+import { AuthContext } from "../../context/authContext";
 
 function Header() {
   const location = useLocation();
@@ -11,6 +17,9 @@ function Header() {
   };
 
   const {isDarkMode, setIsDarkMode} = useContext(ThemeContext)
+  const {token} = useContext(TokenContext)
+const [compare, setCompare] =useState(false)
+const {setCompConfidens} = useContext(AuthContext)
 
 
   useEffect(() => {
@@ -43,6 +52,33 @@ function Header() {
       btn.removeEventListener('click', toggleDarkMode);
     };
   }, [isDarkMode]);
+
+
+  const handleImages = (evt) => {
+    evt.preventDefault();
+    const [image1, image2] = evt.target.elements;
+    const formData = new FormData();
+    formData.append('photo1', image1.files[0]);
+    formData.append('photo2', image2.files[0]);
+  
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
+        Authorization: `Token ${token}`,
+      },
+    };
+  
+    axios.post('https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/verify/', formData, config)
+      .then((response) => {
+        setCompConfidens(response.data.confidence.toFixed(2) * 100)
+        setCompare(true)
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('Лицо не найдено !');
+      });
+  };
 
   return (
     <div className={`header ${isDarkMode ? 'darkmode' : ''}`}>
@@ -80,6 +116,7 @@ function Header() {
           </li>
         </ul>
         <div className="header_compare">
+          <form onSubmit={handleImages}>
           <p className="compare_heading">Cравнение</p>
           <div className="compare_images">
             <label className={`compare_label ${isDarkMode ? 'darkmode' : ''}`}>
@@ -94,6 +131,7 @@ function Header() {
           <button className={`compare_button ${isDarkMode ? 'darkmode' : ''}`} type="submit">
             Сравнить
           </button>
+          </form>
         </div>
         <div className="header_liveness">
           <p className="header_livenessText">Проверка на Liveness</p>
@@ -101,6 +139,8 @@ function Header() {
             Доступ к камере
           </button>
         </div>
+        <ToastContainer />
+        <Compare compare={compare} setCompare={setCompare}/>
       </div>
     </div>
   );
