@@ -16,10 +16,10 @@ const Login = () => {
         formData.append('username', email.value);
         formData.append('password', password.value);
     
-        axios.post('https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/api-token-auth/', formData)
+        axios.post('https://gsiback.tadi.uz/api/token/', formData)
         .then((response) => {
           if (response.data) {
-            setToken(response.data.token);
+            setToken(response.data.access);
             navigate('/');
           }
         })

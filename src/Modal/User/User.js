@@ -1,34 +1,18 @@
-import { useContext, useEffect, useState } from 'react';
-// import axios from 'axios';
+import { useContext } from 'react';
 import PeopleImg from '../../images/photo_2022-10-13_15-28-30.jpg'
 import { Box, Modal, Typography } from '@mui/material';
-import close_Button from '../../images/close-btn.svg'
 import { ThemeContext } from '../../context/themeContext';
+import { AuthContext } from '../../context/authContext';
 
 
 function User({ open, setOpen }) {
   const { isDarkMode } = useContext(ThemeContext);
-     
+  const {userFace} = useContext(AuthContext)
+
       const handleClose = () => {
         setOpen(false);
       };
-//   const [user, setUser] = useState();
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//           const response = await axios.get(
-//             `https://www.api.yomon-emas.uz/api/users/pupils/${item?.id}`
-//           );
-
-//         setUser(response.data);
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     };
-
-//     fetchData();
-//   }, []);
 
   return (
     <Modal
@@ -42,26 +26,26 @@ function User({ open, setOpen }) {
             <div className={`modal_container ${isDarkMode ? 'darkmode' : ''}`}>
             <div className='modal_content1'>
                 <div className='modal_imageDiv'>
-                    <img className='modal_img' src={PeopleImg} width="150" height="200" alt='userImg'/>
+                    <img className='modal_img' src={userFace?.photo ? userFace?.photo : PeopleImg} width="150" height="200" alt='userImg'/>
                     <div className='modal_header'>
-                        <h1>Садыков Дурёд Талибжанович</h1>
+                        <h1>{userFace?.full_name ? userFace?.full_name : "Пустой"}</h1>
 
-                        <p>Наименование страны гражданства <span>Республика Узбекистан</span></p>
-                        <p>Год рождения <span>22.04.2000</span></p>
+                        <p>Наименование страны гражданства <span>{userFace?.citizenship_country_name ? userFace?.citizenship_country_name : "Пустой"}</span></p>
+                        <p>Год рождения <span>{userFace?.birth_date ? userFace?.birth_date : "Пустой"}</span></p>
                     </div>
                 </div>
-                <span>Sadikov Duryod</span>
+                <span>{userFace?.full_name ? userFace?.full_name : "Пустой"}</span>
                 <div className='parenDiv'>
-                    <p>Пол <span>Мужчина</span></p>
-                    <p>Серия и номер паспорта <span>AB 4112532</span></p>
+                    <p>Пол <span>{userFace?.gender === true ? 'Мужчина' : userFace?.gender === false ? "Женщина" : "Пустой"}</span></p>
+                    <p>Серия и номер паспорта <span>{userFace?.passport_series ? userFace?.passport_series : "Пустой"} {userFace?.passport_number ? userFace?.passport_number : "Пустой"}</span></p>
                 </div>
                 <div className='parenDiv'>
-                    <p>Национальность <span>Узбек</span></p>
-                    <p>Код Национальности <span>*********</span></p>
+                    <p>Национальность <span>{userFace?.nationality ? userFace?.nationality : "Пустой"}</span></p>
+                    <p>Код Национальности <span>{userFace?.nationality_code ? userFace?.nationality_code : "Пустой"}</span></p>
                 </div>
-                <p>Место рождения <span>г. Ташкент, ул. Жахонаро, д. 8 стр. 1</span></p>
-                <p>Код страны гражданства <span>122399993</span></p>
-                <p>ПИНФЛ <span>112233445566778</span></p>
+                <p>Место рождения <span>{userFace?.place_of_birth ? userFace?.place_of_birth : "Пустой"}</span></p>
+                <p>Код страны гражданства <span>{userFace?.birth_country_code ? userFace?.birth_country_code : "Пустой"}</span></p>
+                <p>ПИНФЛ <span>{userFace?.pinfl ? userFace?.pinfl : "Пустой"}</span></p>
             </div>
 
             <div className='modal_content2'>
@@ -70,13 +54,13 @@ function User({ open, setOpen }) {
 </svg>
 
                 <div>
-                    <p>Наименование страны рождения <span>Республика Узбекистан</span></p>
-                    <p>Код страны рождения <span>********************</span></p>
-                    <p>Дата выдачи паспорта  <span>22.05.2016</span></p>
-                    <p>Дата истечения срока паспорта  <span>22.06.2026</span></p>
-                    <p>Код подразделения внутренних дел, выдавшего паспорт <span>356398794</span></p>
-                    <p>Наименование органа, выдавшего паспорт <span>Орган внутренних дел Республики Узбекистана</span></p>
-                    <p>Физическое состояние <span>Живой</span></p>
+                    <p>Наименование страны рождения <span>{userFace?.citizenship_country_name ? userFace?.citizenship_country_name : "Пустой"}</span></p>
+                    <p>Код страны рождения <span>{userFace?.citizenship_country_code ? userFace?.citizenship_country_code : "Пустой"}</span></p>
+                    <p>Дата выдачи паспорта  <span>{userFace?.passport_issue ? userFace?.passport_issue : "Пустой"}</span></p>
+                    <p>Дата истечения срока паспорта  <span>{userFace?.passport_expiration ? userFace?.passport_expiration : "Пустой"}</span></p>
+                    <p>Код подразделения внутренних дел, выдавшего паспорт <span>{userFace?.internal_affairs_code ? userFace?.internal_affairs_code : "Пустой"}</span></p>
+                    <p>Наименование органа, выдавшего паспорт <span>{userFace?.internal_affairs_name ? userFace?.internal_affairs_name : "Пустой"}</span></p>
+                    <p>Физическое состояние <span>{userFace?.physical_condition === true ? "Живой" : userFace?.physical_condition === false ? "Мёртвый" : "Пустой"}</span></p>
                 </div>
             </div>
             </div>

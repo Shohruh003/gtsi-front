@@ -5,6 +5,9 @@ import { useContext, useEffect, useState } from 'react';
 import User from '../../Modal/User/User';
 import { TokenContext } from '../../context/tokenContext';
 import axios from 'axios';
+import { AuthContext } from '../../context/authContext';
+import { toast } from 'react-toastify';
+import SearchImage from '../../Modal/SearchImage/SearchImage';
 function Database() {
     const [database, setDatabase] = useState()
     const {token} = useContext(TokenContext)
@@ -14,6 +17,12 @@ function Database() {
  const [pinfl, setPinfl] = useState()
  const [name, setName] = useState()
  const [selectedItems, setSelectedItems] = useState([]);
+ const {setUserFace} = useContext(AuthContext)
+ const [userbtn, setUserBtn] = useState()
+ const [image, setImage] = useState(null)
+ const [openimage, setOpenimage] = useState(false)
+ const {searchFace, setSearchFace} = useContext(AuthContext)
+ const [face, setFace] = useState()
 
  const handleCheckboxChange = (event, itemId) => {
   const isChecked = event.target.checked;
@@ -34,7 +43,7 @@ const handleDelete = async () => {
     }
     const timestamp = Date.now();
     const response = await axios.delete(
-      `https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/card/${selectedItems.join(',')}/`,
+      `https://mycorse.onrender.com/https://gsiback.tadi.uz/api/card/${selectedItems.join(',')}/`,
       {
         headers: {
           accept: 'application/json',
@@ -76,9 +85,10 @@ const handlePinflChange = (event) => {
   setPinfl(searchName);
 };
 
- const handleOpen = () => {
-    setOpen(true);
-  };
+const handleOpen = (itemId) => {
+  setUserBtn(itemId)
+  setOpen(true);
+};
   useEffect(() => {
 
     const fetchPupils = async () => {
@@ -100,7 +110,7 @@ const handlePinflChange = (event) => {
           params.pinfl__icontains = pinfl;
         }
         const response = await axios.get(
-          'https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/card',
+          'https://mycorse.onrender.com/https://gsiback.tadi.uz/api/card',
           {
             params,
             headers: {
@@ -118,6 +128,74 @@ const handlePinflChange = (event) => {
 
     fetchPupils();
   }, [name, pasSer, pasNum, pinfl]);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+          const response = await axios.get(
+            `https://gsiback.tadi.uz/api/card/${userbtn}/`, {
+              headers: {
+                Authorization: `Token ${token}`,
+              },
+            }
+          );
+        setUserFace(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [userbtn]);
+
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0])
+  }
+
+  const handleImage = () => {
+    const formData = new FormData();
+    formData.append('image', image);
+  
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
+        Authorization: `Token ${token}`,
+      },
+    };
+  
+    axios.post('https://mycorse.onrender.com/https://gsiback.tadi.uz/api/search-faces/', formData, config)
+      .then((response) => {
+        setFace(response.data.result[0])
+        setOpenimage(true)
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('Лицо не найдено !');
+      });
+
+
+      const fetchData = async () => {
+        try {
+            const response = await axios.get(
+              `https://gsiback.tadi.uz/api/card/${face}/`, {
+                headers: {
+                  Authorization: `Token ${token}`,
+                },
+              }
+            );
+          setSearchFace(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+  
+      fetchData();
+  };
+
+
+
     return (
         <div className="query">
         <div className="query_inner">
@@ -150,11 +228,11 @@ const handlePinflChange = (event) => {
 
                     <li className="query_headerItem query_searchImg">
                         <label>Поиск фото</label>
-                        <input className="query_headerInput query_searchImg" type="file" placeholder="Фото" />
+                        <input onChange={handleImageChange} className="query_headerInput query_searchImg" type="file" placeholder="Фото" />
                     </li>
 
                     <li className="query_headerItem">
-                        <button className="query_searchBtn" type="submit">Поиск</button>
+                        <button onClick={handleImage} className="query_searchBtn" type="submit">Поиск</button>
                     </li>
                 </ul>
             </div>
@@ -228,7 +306,7 @@ const handlePinflChange = (event) => {
                 <p className="query_passDate">{item?.passport_expiration ? item?.passport_expiration : "Пустой"}</p>
                 </th>
                 <th>
-                <button className='database_itemBtn' onClick={handleOpen} type='button'>Подробно </button>
+                <button className='database_itemBtn' onClick={() => handleOpen(item.id)} type='button'>Подробно</button>
                 </th>
 </tr>
         ))}
@@ -236,6 +314,8 @@ const handlePinflChange = (event) => {
 </table>
 <button onClick={handleDelete} className='delete_button' type='button'>Удалить</button>
 <User open={open} setOpen={setOpen}/>
+<SearchImage openimage={openimage} setOpenimage={setOpenimage}/>
+
         </div>
       </div>
     );

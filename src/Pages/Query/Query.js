@@ -7,12 +7,19 @@ import { TokenContext } from '../../context/tokenContext';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SearchImage from '../../Modal/SearchImage/SearchImage';
+import { AuthContext } from '../../context/authContext';
 function Query() {
     const [query, setQuery] = useState()
     const {token} = useContext(TokenContext)
   const {isDarkMode} = useContext(ThemeContext)
+  const {searchFace, setSearchFace} = useContext(AuthContext)
+  const [face, setFace] = useState()
+
   const [name, setName] = useState()
   const [uid, setUid] = useState()
+  const [image, setImage] = useState(null)
+  const [openimage, setOpenimage] = useState(false)
 
   const handleNameChange = (event) => {
     const searchName = event.target.value;
@@ -39,7 +46,7 @@ function Query() {
         }
 
         const response = await axios.get(
-          'https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/request/',
+          'https://mycorse.onrender.com/https://gsiback.tadi.uz/api/request/',
           {
             params,
             headers: {
@@ -58,11 +65,13 @@ function Query() {
     fetchPupils();
   }, [name, uid]);
 
-  const handleImage = (evt) => {
-    evt.preventDefault();
-    const [image] = evt.target.elements;
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0])
+  }
+
+  const handleImage = () => {
     const formData = new FormData();
-    formData.append('image', image.files[0]);
+    formData.append('image', image);
   
     const config = {
       headers: {
@@ -72,14 +81,32 @@ function Query() {
       },
     };
   
-    axios.post('https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/search-faces/', formData, config)
+    axios.post('https://mycorse.onrender.com/https://gsiback.tadi.uz/api/search-faces/', formData, config)
       .then((response) => {
-        console.log(response);
+        setFace(response.data.result[0])
+        setOpenimage(true)
       })
       .catch((error) => {
         console.log(error);
         toast.error('Лицо не найдено !');
       });
+
+      const fetchData = async () => {
+        try {
+            const response = await axios.get(
+              `https://gsiback.tadi.uz/api/card/${face}/`, {
+                headers: {
+                  Authorization: `Token ${token}`,
+                },
+              }
+            );
+          setSearchFace(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+  
+      fetchData();
   };
 
     return (
@@ -114,11 +141,11 @@ function Query() {
 
                     <li className="query_headerItem query_searchImg">
                         <label>Поиск фото</label>
-                        <input className="query_headerInput query_searchImg" type="file" name='image' placeholder="Фото" />
+                        <input onChange={handleImageChange} className="query_headerInput query_searchImg" type="file" name='image' placeholder="Фото" />
                     </li>
 
                     <li className="query_headerItem">
-                        <button onSubmit={handleImage} className="query_searchBtn" type="submit">Поиск</button>
+                        <button onClick={handleImage} className="query_searchBtn" type="submit">Поиск</button>
                     </li>
                 </ul>
             </div>
@@ -208,8 +235,9 @@ function Query() {
   </tbody>
 </table>
 
-<button className='delete_button' type='button'>Удалить</button>
+{/* <button className='delete_button' type='button'>Удалить</button> */}
 <ToastContainer />
+<SearchImage openimage={openimage} setOpenimage={setOpenimage}/>
         </div>
       </div>
     );

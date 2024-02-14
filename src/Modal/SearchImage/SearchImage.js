@@ -1,0 +1,73 @@
+import { useContext } from 'react';
+import PeopleImg from '../../images/photo_2022-10-13_15-28-30.jpg'
+import { Box, Modal, Typography } from '@mui/material';
+import { ThemeContext } from '../../context/themeContext';
+import { AuthContext } from '../../context/authContext';
+
+
+function SearchImage({ openimage, setOpenimage }) {
+  const { isDarkMode } = useContext(ThemeContext);
+  const {searchFace} = useContext(AuthContext)
+      const handleClose = () => {
+        setOpenimage(false);
+      };
+
+
+  return (
+    <Modal
+        open={openimage}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box className="box">
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <div className={`modal_container ${isDarkMode ? 'darkmode' : ''}`}>
+            <div className='modal_content1'>
+                <div className='modal_imageDiv'>
+                    <img className='modal_img' src={searchFace?.photo ? searchFace?.photo : PeopleImg} width="150" height="200" alt='userImg'/>
+                    <div className='modal_header'>
+                        <h1>{searchFace?.full_name ? searchFace?.full_name : "Пустой"}</h1>
+
+                        <p>Наименование страны гражданства <span>{searchFace?.citizenship_country_name ? searchFace?.citizenship_country_name : "Пустой"}</span></p>
+                        <p>Год рождения <span>{searchFace?.birth_date ? searchFace?.birth_date : "Пустой"}</span></p>
+                    </div>
+                </div>
+                <span>{searchFace?.full_name ? searchFace?.full_name : "Пустой"}</span>
+                <div className='parenDiv'>
+                    <p>Пол <span>{searchFace?.gender === true ? 'Мужчина' : searchFace?.gender === false ? "Женщина" : "Пустой"}</span></p>
+                    <p>Серия и номер паспорта <span>{searchFace?.passport_series ? searchFace?.passport_series : "Пустой"} {searchFace?.passport_number ? searchFace?.passport_number : "Пустой"}</span></p>
+                </div>
+                <div className='parenDiv'>
+                    <p>Национальность <span>{searchFace?.nationality ? searchFace?.nationality : "Пустой"}</span></p>
+                    <p>Код Национальности <span>{searchFace?.nationality_code ? searchFace?.nationality_code : "Пустой"}</span></p>
+                </div>
+                <p>Место рождения <span>{searchFace?.place_of_birth ? searchFace?.place_of_birth : "Пустой"}</span></p>
+                <p>Код страны гражданства <span>{searchFace?.birth_country_code ? searchFace?.birth_country_code : "Пустой"}</span></p>
+                <p>ПИНФЛ <span>{searchFace?.pinfl ? searchFace?.pinfl : "Пустой"}</span></p>
+            </div>
+
+            <div className='modal_content2'>
+            <svg className='close_button' onClick={handleClose} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.483 1.29294C24.1961 -0.424406 26.9809 -0.431974 28.7036 1.27633C30.4251 2.98415 30.4325 5.7611 28.7205 7.47697L21.2043 15.0033L28.7284 22.5365C30.4263 24.2402 30.4033 26.9996 28.6769 28.7006C26.95 30.4008 24.1736 30.3964 22.4761 28.693L15.0034 21.2118L7.51668 28.7069C5.80363 30.4243 3.01878 30.4318 1.29609 28.7235C-0.425371 27.0157 -0.433037 24.2388 1.27927 22.5229L8.79547 14.9965L1.2716 7.46306C-0.426608 5.75939 -0.403361 3.00002 1.32304 1.29904C3.04994 -0.400967 5.82638 -0.396817 7.52385 1.30661L14.9965 8.78805L22.483 1.29294Z" fill="#393C42"/>
+</svg>
+
+                <div>
+                    <p>Наименование страны рождения <span>{searchFace?.citizenship_country_name ? searchFace?.citizenship_country_name : "Пустой"}</span></p>
+                    <p>Код страны рождения <span>{searchFace?.citizenship_country_code ? searchFace?.citizenship_country_code : "Пустой"}</span></p>
+                    <p>Дата выдачи паспорта  <span>{searchFace?.passport_issue ? searchFace?.passport_issue : "Пустой"}</span></p>
+                    <p>Дата истечения срока паспорта  <span>{searchFace?.passport_expiration ? searchFace?.passport_expiration : "Пустой"}</span></p>
+                    <p>Код подразделения внутренних дел, выдавшего паспорт <span>{searchFace?.internal_affairs_code ? searchFace?.internal_affairs_code : "Пустой"}</span></p>
+                    <p>Наименование органа, выдавшего паспорт <span>{searchFace?.internal_affairs_name ? searchFace?.internal_affairs_name : "Пустой"}</span></p>
+                    <p>Физическое состояние <span>{searchFace?.physical_condition === true ? "Живой" : searchFace?.physical_condition === false ? "Мёртвый" : "Пустой"}</span></p>
+                </div>
+            </div>
+            </div>
+
+          </Typography>
+        </Box>
+      </Modal>
+  );
+}
+
+export default SearchImage;

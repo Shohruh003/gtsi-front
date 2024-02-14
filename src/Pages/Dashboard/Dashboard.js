@@ -61,7 +61,7 @@ let week6 = null
 
 
   useEffect(() => {
-    axios.get('https://mycorse.onrender.com/https://www.gsi.yomon-emas.uz/api/request/dashboard/',{
+    axios.get('https://mycorse.onrender.com/https://gsiback.tadi.uz/api/request/dashboard/',{
     headers: {
         'accept': 'application/json',
         'X-CSRFToken': 'M1u8j44fbMPtbGOOrefkhJimIRDRtNKCJlnUMjPQTsJ2PQPO6RoOLCIz8v8PnsbL',
